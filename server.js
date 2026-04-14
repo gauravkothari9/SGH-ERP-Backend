@@ -55,7 +55,19 @@ if (process.env.NODE_ENV === 'development') {
 // ─── Static Files (Uploads) ─────────────────────────────────────────────────
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// ─── Health Check ───────────────────────────────────────────────────────────
+// ─── Health check & Root ────────────────────────────────────────────────────
+app.get('/', (req, res) => {
+  res.json({ success: true, message: 'SGH ERP Backend is running' });
+});
+
+app.get('/api/v1', (req, res) => {
+  res.json({
+    success: true,
+    message: 'SGH ERP API v1 is active',
+    version: '1.0.0',
+  });
+});
+
 app.get('/api/v1/health', (req, res) => {
   res.json({
     success: true,
