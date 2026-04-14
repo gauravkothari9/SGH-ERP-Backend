@@ -1,0 +1,9 @@
+node_modules
+logs.txt
+check-db.js
+reset-admin.js
+scripts/
+uploads/
+.env
+.env.local
+*.log
